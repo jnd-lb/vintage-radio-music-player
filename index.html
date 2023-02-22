@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./images/fav.png" type="image/png" />
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <title>Vintage Radio</title>
+</head>
+
+<body>
+
+    
+    <div class="wooden-case">
+        <div class="highlight left"></div>
+        <div class="highlight right"></div>
+        <div class="white-eadge">
+            <div class="main">
+                <div class="speaker">
+
+                    <span class="logo">
+                        <img src="./images/logo.png" alt="logo">
+                    </span>
+                    <ul class="tracks-list">
+                    </ul>
+                    <i class="list-icons bi bi-chevron-compact-left"></i>
+
+                    <div class="playing-now hide">
+                        <img class="album-art" src="" alt="">
+                        <div class="track-details">
+                            <p>Currently Playing Now</p>
+                            <h1 id="track-title"></h1>
+                            <h2 id="singer-name"></h2>
+                        </div>
+                    </div>
+
+                    <div class="speaker-pattern"></div>
+                </div>
+                <div class="dashbord">
+                    <div class="channel-change-js tuning-dial">
+                        <div id="station-dot" class="dot station"></div>
+                        <button id="prev-track">
+                            <i class="bi bi-chevron-bar-left"></i>
+                        </button>
+                        <button id="next-track">
+                            <i class="bi bi-chevron-bar-right"></i>
+                        </button>
+                    </div>
+                    <div class="controllers">
+                        <div class="frequency-screen">
+                            <input type="range" name="seekbar" id="seekbar">
+                        </div>
+                        
+                        <div class="icons">
+                            <i class="bi bi-play-fill"></i>
+                            <i class="bi bi-arrow-repeat"></i>
+                            <i class="bi bi-shuffle"></i>
+                            <i class="bi bi-stop-fill"></i>
+                        </div>
+
+                        <div class="buttons">
+                            <div id="play" class="button"></div>
+                            <div id="repeat" class="button"></div>
+                            <div id="shuffle" class="button"></div>
+                            <div id="stop" class="button"></div>
+                        </div>
+                        
+                    </div>
+                    <div id="volume" class="tuning-dial">
+                        <div id="volume-dot" class="dot"></div>
+                        <button title="volume down" id="volume-down">
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                        <button title="volume up"  id="volume-up">
+                            <i class="bi bi-chevron-up"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
