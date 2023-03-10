@@ -4,6 +4,11 @@
  --radius: 4.625rem 4.625rem 2.625rem 2.625rem;
 }
 
+*{
+
+    user-select: none;
+
+}
 
 
 
@@ -50,7 +55,7 @@ body{
     padding: 0;
     height: 100vh;
     background:  radial-gradient(
-        circle,
+        ellipse at center,
         #FAFF00 0%,
         #FF9466 150%
       );
@@ -101,7 +106,7 @@ body{
           background:linear-gradient(to bottom,#ead18a,#FFF5D9);
     border-radius: var(--radius);
 
-    width: 22.027rem;
+    width: 22.6rem;
     height: 16.558rem;
 }
 
@@ -110,13 +115,14 @@ body{
     margin-bottom: 0.5rem;
 
     border-radius:var(--radius);
-    box-shadow:0px 0px 17px #826612f2;
     width: 21.269rem;
     height: 15.414rem;
-    
+    box-shadow: 0px 0px 17px #826612f2;
+
 }
 
 .speaker{
+    box-shadow: inset 0rem 0.3rem 0.2rem rgb(0 0 0 / 30%), inset 0rem 0rem 2rem rgb(0 0 0 / 17%), inset 0px -1px 2px #00000045;
     overflow: hidden;
     position: relative;
     display: flex;
@@ -124,8 +130,6 @@ body{
 
     border-bottom-right-radius:0 ;
     border-bottom-left-radius: 0;
-
-    box-shadow: inset 0rem 0.3rem 0.2rem rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 67%;
 
@@ -153,6 +157,19 @@ body{
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.5s ease;
+}
+
+.tracks-list:hover{
+    opacity: 1;
+    width: 80%;
+}
+.tracks-list:hover~.playing-now{
+    width:30%
+}
+
+
+.tracks-list:hover~.list-icons{
+    opacity: 0;
 }
 
 .list-icons{
@@ -184,18 +201,7 @@ li.active{
     z-index: 100;
 }
 
-.tracks-list:hover{
-    opacity: 1;
-    width: 80%;
-}
-.tracks-list:hover~.playing-now{
-    width:30%
-}
 
-
-.tracks-list:hover+.list-icons{
-    opacity: 0;
-}
 
 .playing-now{
     display: flex;
@@ -226,8 +232,10 @@ li.active{
 }
 
 .tracks-list li{
-    margin: 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0.5rem;
 }
+
+
 
 .tracks-list li:hover{
     font-weight: 900;
@@ -248,6 +256,7 @@ li.active{
     background-image: url(./images/pattern.png);
     opacity: 0.05;
     border-radius: var(--radius);
+    background-repeat: repeat;
     border-bottom-right-radius:0 ;
     border-bottom-left-radius: 0;
 }
@@ -265,7 +274,7 @@ li.active{
 
 .dashbord{
     box-sizing: border-box;
-    padding: 0 0.5rem;
+    padding: 0 0.7rem;
     border-radius:var(--radius);
 
     display: flex;
@@ -276,6 +285,7 @@ li.active{
 
     background: linear-gradient(to bottom, #EA6B2E , #802409);
 
+    box-shadow: inset 0px -2px 4px 3px #00000033, inset 0px 7px 4px 3px #ffffff1a;
     width: 100%;
     height: 33%;
 }
@@ -285,6 +295,7 @@ li.active{
     align-self: end;
     margin-bottom: 0.5rem;
     display: flex;
+    z-index: 10;
     position: relative;
     width: 2.813rem;
     height: 2.813rem;
@@ -310,6 +321,7 @@ li.active{
     color: rgb(71, 71, 71);
   }
   
+
 
 .dot{
     position: absolute;
@@ -339,7 +351,7 @@ li.active{
 }
 
 .controllers{
-    padding-top: 0.5rem;
+    padding-top: 0.7rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -349,7 +361,10 @@ li.active{
 }
 
 .frequency-screen{
-    box-shadow: inset -1px -1px 6px 0px rgb(0 0 0 / 21%);
+    box-shadow: 
+    inset -1px -1px 6px 0px rgb(0 0 0 / 21%),
+     inset 0 0.07rem 0.2rem 0rem #00000094, 
+     0px 0.02rem 0 #ffffffb5;
     display: flex;
     align-items: center;
     background: linear-gradient(#B4B4B4 0%, #D9D9D9 30%, #D9D9D9 70%, #B4B4B4 100% );
@@ -363,7 +378,7 @@ li.active{
 .frequency-screen input{
     padding: 0;
     margin: 0;
-    -webkit-appearance: none;
+    appearance: none;
     background: transparent;
     width: 100%;
     overflow: hidden;
@@ -393,10 +408,10 @@ li.active{
 
 
 
-.frequency-screen input::-webkit-slider-thumb{
+.frequency-screen input::-webkit-slider-thumb {
     position: relative;
     z-index: 10;
-    -webkit-appearance: none;
+   appearance: none;
     width: 0.2rem;
     height: 1.813rem;
     background: #931822;
@@ -405,7 +420,17 @@ li.active{
   }
 
 .frequency-screen input::-moz-range-thumb{
-    -webkit-appearance: none;
+    appearance: none;
+    width: 0.156rem;
+    height: 4rem;
+    background: #931822;
+    cursor: pointer;
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
+  }
+
+
+.frequency-screen input::-ms-thumb{
+    appearance: none;
     width: 0.156rem;
     height: 4rem;
     background: #931822;
@@ -424,7 +449,7 @@ li.active{
   .button{
     cursor: pointer;
     position: relative;
-      box-shadow: inset 0px 4px 3px 0 white;
+      box-shadow: 0 0.3rem 0.05rem #b3b1b14e, inset 0px 4px 3px 0 white;
       background: linear-gradient(to left, #B3B1B3 0%,  #e4e4e4 10%,  #e4e4e4 90%,  #B3B1B3 100%);
 
       align-self: end;
